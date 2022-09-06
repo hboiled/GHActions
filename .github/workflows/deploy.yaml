@@ -13,7 +13,7 @@ jobs:
         subscription-id: $SubscriptionId
       env:
         ClientId: ${{ secrets.CLIENT_ID }} 
-        TenantId: ${{ secrets.TENANT_ID }} 
+        TenantId: ${{ secrets.AAD_TENANT }} 
         SubscriptionId: ${{ secrets.SUBSCRIPTION_ID }} 
     - uses: actions/checkout@v2
     - name: show user
