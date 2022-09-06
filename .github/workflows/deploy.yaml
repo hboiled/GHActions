@@ -25,7 +25,7 @@ jobs:
       uses: actions/upload-artifact@v2.2.2
       with:
         name: api
-        path: GHSample.Api/website/**
+        path: GHSample.Api/api/**
         if-no-files-found: error
   deploy:
     permissions:
@@ -45,7 +45,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v2.0.8
+      with:
+        name: api
+        path: api
 
     - uses: azure/login@v1
       with:
