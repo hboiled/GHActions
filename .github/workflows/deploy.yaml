@@ -1,0 +1,21 @@
+name: Deploy Api
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: azure/login@v1
+      with:
+        client-id: $ClientId
+        tenant-id: $TenantId
+        subscription-id: $SubscriptionId
+      env:
+        ClientId: ${{ secrets.CLIENT_ID }} 
+        TenantId: ${{ secrets.TENANT_ID }} 
+        SubscriptionId: ${{ secrets.SUBSCRIPTION_ID }} 
+    - uses: actions/checkout@v2
+    - name: show user
+      run: |
+        az webapp list
